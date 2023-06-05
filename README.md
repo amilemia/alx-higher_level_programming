@@ -1,1 +1,1 @@
-# alx-higher_level_programming
+# This repo is for all high level programming projects.
