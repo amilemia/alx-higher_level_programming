@@ -9,4 +9,4 @@ def pow(a, b):
     else:
         for _ in range(abs(b)):
             result /= a
-    return '{:.18f}'.format(result)
+    return '{:.16f}'.format(result)
