@@ -41,3 +41,6 @@
 | 8. Esrever | [8-esrever.js](./8-esrever.js) |
 | 9. Log me | [9-logme.js](./9-logme.js) |
 | 10. Number conversion | [10-converter.js](./10-converter.js) |
+| 11. Factor index | [100-map.js](./100-map.js) |
+| 12. Sorted occurences | [101-sorted.js](./101-sorted.js) |
+| 13. Concat files | [102-concat.js](./102-concat.js) |
