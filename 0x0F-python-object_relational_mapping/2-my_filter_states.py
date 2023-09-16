@@ -8,19 +8,20 @@ if __name__ == "__main__":
     import MySQLdb
     import sys
 
+    db_host = "localhost"
     db_user = sys.argv[1]
     db_password = sys.argv[2]
     db_name = sys.argv[3]
     state_name = sys.argv[4]
+    port = 3306
 
     try:
         # Establish a connection to the MySQL database
         db = MySQLdb.connect(
-            host="localhost",
             user=db_user,
             passwd=db_password,
             db=db_name,
-            port=3306
+            port=port
         )
 
         # Create a cursor object to interact with the database
@@ -34,9 +35,6 @@ if __name__ == "__main__":
         rows = cursor.fetchall()
         for row in rows:
             print(row)
-
-    except MySQLdb.Error as e:
-        print("MySQL Error:", e)
 
     finally:
         # Close the cursor and the database connection
