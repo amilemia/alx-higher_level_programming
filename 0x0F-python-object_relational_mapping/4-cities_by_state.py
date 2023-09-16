@@ -29,8 +29,12 @@ if __name__ == "__main__":
         # Create a cursor object to interact with the database
         cursor = db.cursor()
 
-        # Execute the SQL query to retrieve all cities and order by id
-        cursor.execute("SELECT * FROM cities ORDER BY id ASC")
+        # Execute SQL query to retrieve all cities and their respective states
+        cursor.execute(
+            "SELECT cities.id, cities.name, states.name FROM cities "
+            "JOIN states ON cities.state_id = states.id "
+            "ORDER BY cities.id ASC"
+        )
 
         # Fetch and print the results
         rows = cursor.fetchall()
