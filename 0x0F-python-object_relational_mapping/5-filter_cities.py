@@ -10,8 +10,8 @@ if __name__ == "__main__":
 
     # Check if all four required arguments are provided
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>"
-              .format(sys.argv[0]))
+        print("Usage: {} <username> <password> <database> <state_name>".
+              format(sys.argv[0]))
         sys.exit(1)
 
     db_user = sys.argv[1]
@@ -33,17 +33,19 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         # Create a parameterized SQL query to retrieve cities by state name
-        query = "SELECT cities.id, cities.name, states.name FROM cities \
-                 JOIN states ON cities.state_id = states.id \
-                 WHERE states.name = %s ORDER BY cities.id ASC"
+        query = (
+            "SELECT cities.id, cities.name, states.name FROM cities "
+            "JOIN states ON cities.state_id = states.id "
+            "WHERE states.name = %s ORDER BY cities.id ASC"
+        )
 
         # Execute the query with the state_name as a parameter
         cursor.execute(query, (state_name,))
 
         # Fetch and print the results
         rows = cursor.fetchall()
-        for row in rows:
-            print(row)
+        city_names = ', '.join(row[1] for row in rows)
+        print(city_names)
 
     except MySQLdb.Error as e:
         print("MySQL Error:", e)
