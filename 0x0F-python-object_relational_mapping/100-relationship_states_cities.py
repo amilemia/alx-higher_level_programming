@@ -24,6 +24,8 @@ if __name__ == "__main__":
             pool_pre_ping=True,
         )
 
+        Base.metadata.create_all(engine)  # Create tables
+
         Session = sessionmaker(bind=engine)
         session = Session()
 
